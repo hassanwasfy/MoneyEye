@@ -3,24 +3,22 @@ package com.abaferas.moneyeye.data.models.local
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.abaferas.moneyeye.data.util.DataConstants
+import com.abaferas.moneyeye.data.util.Constants
 
 
-@Entity(
-    tableName = DataConstants.TABLE_USER,
-    primaryKeys = [DataConstants.COLUMN_ID],)
+@Entity(tableName = Constants.TABLE_USER)
 data class LocalUser(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = DataConstants.COLUMN_ID)
+    @ColumnInfo(name = Constants.COLUMN_ID)
     val id: Long,
-    @ColumnInfo(name = DataConstants.COLUMN_FIRST_NAME)
+    @ColumnInfo(name = Constants.COLUMN_FIRST_NAME)
     val firstName: String,
-    @ColumnInfo(name = DataConstants.COLUMN_LAST_NAME)
+    @ColumnInfo(name = Constants.COLUMN_LAST_NAME)
     val lastName: String,
-    @ColumnInfo(name = DataConstants.COLUMN_EMAIL)
+    @ColumnInfo(name = Constants.COLUMN_EMAIL)
     val email: String,
-    @ColumnInfo(name = DataConstants.COLUMN_PASSWORD)
+    @ColumnInfo(name = Constants.COLUMN_PASSWORD)
     val password: String,
-    @ColumnInfo(name = DataConstants.COLUMN_SYNCED)
+    @ColumnInfo(name = Constants.COLUMN_SYNCED)
     val synced: Boolean = false,
 )

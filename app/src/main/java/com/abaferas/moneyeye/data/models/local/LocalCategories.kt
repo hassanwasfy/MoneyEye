@@ -3,30 +3,27 @@ package com.abaferas.moneyeye.data.models.local
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import com.abaferas.moneyeye.data.util.DataConstants
+import androidx.room.PrimaryKey
+import com.abaferas.moneyeye.data.util.Constants
 
 @Entity(
-    tableName = DataConstants.TABLE_CATEGORIES,
+    tableName = Constants.TABLE_CATEGORIES,
     foreignKeys = [
         ForeignKey(
-            entity = LocalAccount::class,
-            parentColumns = [DataConstants.COLUMN_ID],
-            childColumns = [DataConstants.COLUMN_ACCOUNT_ID],
+            entity = LocalTransaction::class,
+            parentColumns = [Constants.COLUMN_ID],
+            childColumns = [Constants.COLUMN_TRANSACTION_ID],
             onDelete = ForeignKey.CASCADE,
             onUpdate = ForeignKey.CASCADE
         ),
-        ForeignKey(
-            entity = LocalCategory::class,
-            parentColumns = [DataConstants.COLUMN_ID],
-            childColumns = [DataConstants.COLUMN_CATEGORY_ID],
-            onDelete = ForeignKey.CASCADE,
-            onUpdate = ForeignKey.CASCADE
-        )
     ]
 )
 data class LocalCategories(
-    @ColumnInfo(name = DataConstants.COLUMN_ACCOUNT_ID)
-    val accountId: Long = 0L,
-    @ColumnInfo(name = DataConstants.COLUMN_CATEGORY_ID)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = Constants.COLUMN_ID)
+    val id: Long = 0L,
+    @ColumnInfo(name = Constants.COLUMN_TRANSACTION_ID)
+    val transactionId: Long = 0L,
+    @ColumnInfo(name = Constants.COLUMN_CATEGORY_ID)
     val categoryId: Long = 0L
 )

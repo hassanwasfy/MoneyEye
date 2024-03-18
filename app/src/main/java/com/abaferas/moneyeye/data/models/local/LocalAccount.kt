@@ -4,33 +4,32 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.abaferas.moneyeye.data.util.DataConstants
+import com.abaferas.moneyeye.data.util.Constants
 
 
 @Entity(
-    tableName = DataConstants.TABLE_ACCOUNT,
-    primaryKeys = ["id"],
+    tableName = Constants.TABLE_ACCOUNT,
     foreignKeys = [
         ForeignKey(
             entity = LocalUser::class,
-            parentColumns = [DataConstants.COLUMN_ID],
-            childColumns = [DataConstants.COLUMN_USER_ID],
+            parentColumns = [Constants.COLUMN_ID],
+            childColumns = [Constants.COLUMN_USER_ID],
             onDelete = ForeignKey.CASCADE,
             onUpdate = ForeignKey.CASCADE
     )]
 )
 data class LocalAccount(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = DataConstants.COLUMN_ID)
+    @ColumnInfo(name = Constants.COLUMN_ID)
     val id: Long,
-    @ColumnInfo(name = DataConstants.COLUMN_USER_ID)
+    @ColumnInfo(name = Constants.COLUMN_USER_ID)
     val userId: Long,
-    @ColumnInfo(name = DataConstants.COLUMN_NAME)
+    @ColumnInfo(name = Constants.COLUMN_NAME)
     val name: String,
-    @ColumnInfo(name = DataConstants.COLUMN_BALANCE)
+    @ColumnInfo(name = Constants.COLUMN_BALANCE)
     val balance: Double,
-    @ColumnInfo(name = DataConstants.COLUMN_INCOME)
+    @ColumnInfo(name = Constants.COLUMN_INCOME)
     val income: String,
-    @ColumnInfo(name = DataConstants.COLUMN_SYNCED)
+    @ColumnInfo(name = Constants.COLUMN_SYNCED)
     val synced: Boolean = false,
 )
