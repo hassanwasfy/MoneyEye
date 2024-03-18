@@ -1,4 +1,4 @@
-package com.abaferas.moneyeye.data.util
+package com.abaferas.moneyeye.domain.utils
 
 object Constants {
     const val TABLE_USER = "user"

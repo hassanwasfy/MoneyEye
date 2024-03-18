@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.abaferas.moneyeye.data.models.local.LocalCategory
-import com.abaferas.moneyeye.data.util.Constants
+import com.abaferas.moneyeye.domain.utils.Constants
 import kotlinx.coroutines.flow.Flow
 
 @Dao

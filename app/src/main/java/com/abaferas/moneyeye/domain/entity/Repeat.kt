@@ -1,6 +1,6 @@
 package com.abaferas.moneyeye.domain.entity
 
-import com.abaferas.moneyeye.data.util.Constants
+import com.abaferas.moneyeye.domain.utils.Constants
 
 
 enum class Repeat(val value: String) {

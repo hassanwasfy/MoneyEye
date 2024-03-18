@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.abaferas.moneyeye.data.util.Constants
+import com.abaferas.moneyeye.domain.utils.Constants
 
 
 @Entity(
