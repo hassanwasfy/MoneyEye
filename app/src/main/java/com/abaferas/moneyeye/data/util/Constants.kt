@@ -1,9 +1,9 @@
 package com.abaferas.moneyeye.data.util
 
-object DataConstants {
+object Constants {
     const val TABLE_USER = "user"
     const val TABLE_ACCOUNT = "account"
-    const val TABLE_TRANSACTION = "transaction"
+    const val TABLE_RECORDS = "records"
     const val TABLE_CATEGORY = "category"
     const val TABLE_CATEGORIES = "categories"
     const val TYPE_PAYMENT = "payment"
@@ -32,5 +32,5 @@ object DataConstants {
     const val COLUMN_LAST_NAME = "lastName"
     const val COLUMN_EMAIL = "email"
     const val COLUMN_PASSWORD = "password"
-
+    const val COLUMN_TRANSACTION_ID = "transactionId"
 }
