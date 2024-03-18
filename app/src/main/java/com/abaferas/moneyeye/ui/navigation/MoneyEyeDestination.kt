@@ -1,6 +1,5 @@
 package com.abaferas.moneyeye.ui.navigation
 
-sealed class NavigationDestination(val route: String) {
-
-
+sealed class Screens(val route: String) {
+    data object Home: Screens("home")
 }
