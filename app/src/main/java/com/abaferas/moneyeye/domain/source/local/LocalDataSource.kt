@@ -1,16 +1,10 @@
 package com.abaferas.moneyeye.domain.source.local
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Update
 import com.abaferas.moneyeye.data.models.local.LocalAccount
 import com.abaferas.moneyeye.data.models.local.LocalCategories
 import com.abaferas.moneyeye.data.models.local.LocalCategory
 import com.abaferas.moneyeye.data.models.local.LocalTransaction
 import com.abaferas.moneyeye.data.models.local.LocalUser
-import com.abaferas.moneyeye.domain.utils.Constants
 import kotlinx.coroutines.flow.Flow
 
 interface LocalDataSource {
