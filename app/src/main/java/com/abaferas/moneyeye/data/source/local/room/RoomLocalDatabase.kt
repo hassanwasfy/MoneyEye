@@ -1,4 +1,4 @@
-package com.abaferas.moneyeye.data.source.local
+package com.abaferas.moneyeye.data.source.local.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

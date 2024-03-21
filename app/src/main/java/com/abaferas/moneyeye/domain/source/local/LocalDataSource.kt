@@ -28,4 +28,7 @@ interface LocalDataSource {
     suspend fun insertUser(localUser: LocalUser)
     suspend fun updateUser(localUser: LocalUser)
     suspend fun deleteUser(localUser: LocalUser)
+
+    suspend fun setLoginState(state: Boolean)
+    suspend fun getLoginState(): Boolean
 }

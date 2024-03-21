@@ -1,4 +1,4 @@
-package com.abaferas.moneyeye.data.source.local
+package com.abaferas.moneyeye.data.source.local.room
 
 import com.abaferas.moneyeye.data.models.dao.LocalAccountDao
 import com.abaferas.moneyeye.data.models.dao.LocalCategoriesDao
@@ -10,6 +10,7 @@ import com.abaferas.moneyeye.data.models.local.LocalCategories
 import com.abaferas.moneyeye.data.models.local.LocalCategory
 import com.abaferas.moneyeye.data.models.local.LocalTransaction
 import com.abaferas.moneyeye.data.models.local.LocalUser
+import com.abaferas.moneyeye.data.source.local.datastore.DataStoreManagement
 import com.abaferas.moneyeye.domain.source.local.LocalDataSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -19,7 +20,8 @@ class RoomDataSource @Inject constructor(
     private val transactionDao: LocalTransactionDao,
     private val userDao: LocalUserDao,
     private val categoriesDao: LocalCategoriesDao,
-    private val categoryDao: LocalCategoryDao
+    private val categoryDao: LocalCategoryDao,
+    private val dataStoreManagement: DataStoreManagement
 ): LocalDataSource {
     override suspend fun insertNewAccount(account: LocalAccount) {
         accountDao.insertNewAccount(account)
@@ -95,5 +97,13 @@ class RoomDataSource @Inject constructor(
 
     override suspend fun deleteUser(localUser: LocalUser) {
         userDao.delete(localUser)
+    }
+
+    override suspend fun setLoginState(state: Boolean) {
+        dataStoreManagement.setLoginStatus(state)
+    }
+
+    override suspend fun getLoginState(): Boolean {
+        return dataStoreManagement.getLoginStatus()
     }
 }
