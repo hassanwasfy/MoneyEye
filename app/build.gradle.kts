@@ -91,6 +91,8 @@ dependencies {
 
     implementation("io.ktor:ktor-client-android:2.3.9")
 
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
 
 
 }

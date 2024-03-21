@@ -33,4 +33,6 @@ object Constants {
     const val COLUMN_EMAIL = "email"
     const val COLUMN_PASSWORD = "password"
     const val COLUMN_TRANSACTION_ID = "transactionId"
+    const val DATASTORE_NAME = "datastore_settings"
+    const val LOGIN_KEY = "login"
 }
