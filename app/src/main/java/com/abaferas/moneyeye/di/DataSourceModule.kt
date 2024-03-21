@@ -1,6 +1,13 @@
 package com.abaferas.moneyeye.di
 
-import com.abaferas.moneyeye.data.source.local.RoomDataSource
+import android.content.Context
+import com.abaferas.moneyeye.data.models.dao.LocalAccountDao
+import com.abaferas.moneyeye.data.models.dao.LocalCategoriesDao
+import com.abaferas.moneyeye.data.models.dao.LocalCategoryDao
+import com.abaferas.moneyeye.data.models.dao.LocalTransactionDao
+import com.abaferas.moneyeye.data.models.dao.LocalUserDao
+import com.abaferas.moneyeye.data.source.local.datastore.DataStoreManagement
+import com.abaferas.moneyeye.data.source.local.room.RoomDataSource
 import com.abaferas.moneyeye.data.source.remote.SupabaseDataSource
 import com.abaferas.moneyeye.data.source.repository.RepositoryImpl
 import com.abaferas.moneyeye.domain.source.local.LocalDataSource
@@ -10,6 +17,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 
 @Module
@@ -17,8 +25,22 @@ import dagger.hilt.components.SingletonComponent
 class DataSourceModule {
 
     @Provides
-    fun provideRoomDataSource(localDataSource: LocalDataSource): LocalDataSource {
-        return RoomDataSource()
+    fun provideRoomDataSource(
+        accountDao: LocalAccountDao,
+        transactionDao: LocalTransactionDao,
+        userDao: LocalUserDao,
+        categoriesDao: LocalCategoriesDao,
+        categoryDao: LocalCategoryDao,
+        dataStoreManagement: DataStoreManagement
+    ): LocalDataSource {
+        return RoomDataSource(
+            accountDao,
+            transactionDao,
+            userDao,
+            categoriesDao,
+            categoryDao,
+            dataStoreManagement
+        )
     }
 
     @Provides
@@ -27,7 +49,15 @@ class DataSourceModule {
     }
 
     @Provides
-    fun provideRepository(repository: Repository): Repository {
-        return RepositoryImpl()
+    fun provideRepository(localDataSource: LocalDataSource): Repository {
+        return RepositoryImpl(localDataSource)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDataStoreManagement(
+        context: Context
+    ): DataStoreManagement {
+        return DataStoreManagement(context)
     }
 }

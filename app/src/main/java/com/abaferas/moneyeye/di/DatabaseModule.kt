@@ -2,8 +2,7 @@ package com.abaferas.moneyeye.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import com.abaferas.moneyeye.data.source.local.RoomLocalDatabase
+import com.abaferas.moneyeye.data.source.local.room.RoomLocalDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
