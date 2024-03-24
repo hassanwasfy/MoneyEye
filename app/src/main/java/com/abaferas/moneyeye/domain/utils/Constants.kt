@@ -35,4 +35,5 @@ object Constants {
     const val COLUMN_TRANSACTION_ID = "transactionId"
     const val DATASTORE_NAME = "datastore_settings"
     const val LOGIN_KEY = "login"
+    const val ANIMATION_DURATION = 300
 }
