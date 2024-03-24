@@ -28,6 +28,10 @@ data class LocalTransaction(
     val name: String = "",
     @ColumnInfo(name = Constants.COLUMN_AMOUNT)
     val amount: Double = 0.0,
+    @ColumnInfo(name = Constants.COLUMN_QUANTITY)
+    val quantity: Int = 0,
+    @ColumnInfo(name = Constants.COLUMN_TOTAL)
+    val total: Double = 0.0,
     @ColumnInfo(name = Constants.COLUMN_TYPE)
     val type: String = "",
     @ColumnInfo(name = Constants.COLUMN_REPEAT)
@@ -37,5 +41,7 @@ data class LocalTransaction(
     @ColumnInfo(name = Constants.COLUMN_DATE)
     val date: String = "",
     @ColumnInfo(name = Constants.COLUMN_DUE_DATE)
-    val dueDate: String = ""
+    val dueDate: String = "",
+    @ColumnInfo(name = Constants.COLUMN_NOTE)
+    val note: String = "",
 )

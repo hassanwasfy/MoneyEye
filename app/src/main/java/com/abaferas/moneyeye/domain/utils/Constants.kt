@@ -24,6 +24,9 @@ object Constants {
     const val COLUMN_ACCOUNT_ID = "accountId"
     const val COLUMN_CATEGORY_ID = "categoryId"
     const val COLUMN_AMOUNT = "amount"
+    const val COLUMN_NOTE = "note"
+    const val COLUMN_QUANTITY = "quantity"
+    const val COLUMN_TOTAL = "total"
     const val COLUMN_TYPE = "type"
     const val COLUMN_REPEAT = "repeat"
     const val COLUMN_DATE = "date"
@@ -36,4 +39,14 @@ object Constants {
     const val DATASTORE_NAME = "datastore_settings"
     const val LOGIN_KEY = "login"
     const val ANIMATION_DURATION = 300
+    const val MESSAGE_INVALID_INPUT = "input isn't valid"
+    const val MESSAGE_INVALID_EMAIL = "email isn't valid"
+    const val MESSAGE_INVALID_PASSWORD = "password isn't valid"
+    const val MESSAGE_INVALID_PASSWORD_CONFIRMATION = "password doesn't match"
+    const val LABEL_FIRST_NAME = "First Name"
+    const val LABEL_LAST_NAME = "Last Name"
+    const val LABEL_EMAIL = "E-Mail"
+    const val LABEL_PASSWORD = "Password"
+    const val LABEL_PASSWORD_CONFIRM = "Password confirm"
+
 }

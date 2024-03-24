@@ -5,7 +5,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.abaferas.moneyeye.ui.navigation.Screens
 
-
 fun NavGraphBuilder.addSplashScreenRoute() {
     composable(Screens.Splash.route) { ScreenSplash() }
 }
@@ -13,4 +12,3 @@ fun NavGraphBuilder.addSplashScreenRoute() {
 fun NavController.navigateToSplash() {
     navigate(Screens.Splash.route)
 }
-

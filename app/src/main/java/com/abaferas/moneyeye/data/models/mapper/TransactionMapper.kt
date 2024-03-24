@@ -13,7 +13,10 @@ fun LocalTransaction.toDomainModel(): Transaction {
         repeat = this.repeat,
         synced = this.synced,
         date = this.date,
-        dueDate = this.dueDate
+        dueDate = this.dueDate,
+        note = this.note,
+        quantity = this.quantity,
+        total = this.total
     )
 }
 
@@ -27,7 +30,10 @@ fun Transaction.toDtoModel(): LocalTransaction {
         repeat = this.repeat,
         synced = this.synced,
         date = this.date,
-        dueDate = this.dueDate
+        dueDate = this.dueDate,
+        note = this.note,
+        quantity = this.quantity,
+        total = this.total
     )
 }
 
