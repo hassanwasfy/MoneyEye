@@ -7,7 +7,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import com.abaferas.moneyeye.domain.utils.Constants
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.lastOrNull
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -28,6 +28,6 @@ class DataStoreManagement @Inject constructor(
     suspend fun getLoginStatus(): Boolean {
         return context.dataStore.data.map { preferences ->
             preferences[loginStatus] ?: false
-        }.first()
+        }.lastOrNull() ?: false
     }
 }

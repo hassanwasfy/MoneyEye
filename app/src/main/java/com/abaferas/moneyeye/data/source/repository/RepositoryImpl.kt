@@ -5,6 +5,7 @@ import com.abaferas.moneyeye.data.models.mapper.toDtoModel
 import com.abaferas.moneyeye.domain.entity.Account
 import com.abaferas.moneyeye.domain.entity.Categories
 import com.abaferas.moneyeye.domain.entity.Category
+import com.abaferas.moneyeye.domain.entity.Login
 import com.abaferas.moneyeye.domain.entity.Transaction
 import com.abaferas.moneyeye.domain.entity.User
 import com.abaferas.moneyeye.domain.source.local.LocalDataSource
@@ -90,6 +91,22 @@ class RepositoryImpl @Inject constructor(
 
     override suspend fun deleteUser(user: User) {
         localDataSource.deleteUser(user.toDtoModel())
+    }
+
+    override suspend fun insertLogin(login: Login) {
+        localDataSource.insertLogin(login.toDtoModel())
+    }
+
+    override suspend fun updateLogin(login: Login) {
+        localDataSource.updateLogin(login.toDtoModel())
+    }
+
+    override suspend fun deleteLogin(login: Login) {
+        localDataSource.deleteLogin(login.toDtoModel())
+    }
+
+    override suspend fun getLoginByEmail(email: String): Login {
+        return localDataSource.getLoginByEmail(email).toDomainModel()
     }
 
     override suspend fun setLoginState(state: Boolean) {

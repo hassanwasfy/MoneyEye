@@ -3,11 +3,13 @@ package com.abaferas.moneyeye.data.source.local.room
 import com.abaferas.moneyeye.data.models.dao.LocalAccountDao
 import com.abaferas.moneyeye.data.models.dao.LocalCategoriesDao
 import com.abaferas.moneyeye.data.models.dao.LocalCategoryDao
+import com.abaferas.moneyeye.data.models.dao.LocalLoginDao
 import com.abaferas.moneyeye.data.models.dao.LocalTransactionDao
 import com.abaferas.moneyeye.data.models.dao.LocalUserDao
 import com.abaferas.moneyeye.data.models.local.LocalAccount
 import com.abaferas.moneyeye.data.models.local.LocalCategories
 import com.abaferas.moneyeye.data.models.local.LocalCategory
+import com.abaferas.moneyeye.data.models.local.LocalLogin
 import com.abaferas.moneyeye.data.models.local.LocalTransaction
 import com.abaferas.moneyeye.data.models.local.LocalUser
 import com.abaferas.moneyeye.data.source.local.datastore.DataStoreManagement
@@ -21,6 +23,7 @@ class RoomDataSource @Inject constructor(
     private val userDao: LocalUserDao,
     private val categoriesDao: LocalCategoriesDao,
     private val categoryDao: LocalCategoryDao,
+    private val loginDao: LocalLoginDao,
     private val dataStoreManagement: DataStoreManagement
 ): LocalDataSource {
     override suspend fun insertNewAccount(account: LocalAccount) {
@@ -97,6 +100,22 @@ class RoomDataSource @Inject constructor(
 
     override suspend fun deleteUser(localUser: LocalUser) {
         userDao.delete(localUser)
+    }
+
+    override suspend fun insertLogin(localLogin: LocalLogin) {
+        loginDao.insert(localLogin)
+    }
+
+    override suspend fun updateLogin(localLogin: LocalLogin) {
+        loginDao.update(localLogin)
+    }
+
+    override suspend fun deleteLogin(localLogin: LocalLogin) {
+        loginDao.delete(localLogin)
+    }
+
+    override suspend fun getLoginByEmail(email: String): LocalLogin {
+        return loginDao.getLoginByEmail(email = email)
     }
 
     override suspend fun setLoginState(state: Boolean) {

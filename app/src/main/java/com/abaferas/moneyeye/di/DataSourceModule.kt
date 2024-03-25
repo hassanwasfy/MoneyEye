@@ -4,6 +4,7 @@ import android.content.Context
 import com.abaferas.moneyeye.data.models.dao.LocalAccountDao
 import com.abaferas.moneyeye.data.models.dao.LocalCategoriesDao
 import com.abaferas.moneyeye.data.models.dao.LocalCategoryDao
+import com.abaferas.moneyeye.data.models.dao.LocalLoginDao
 import com.abaferas.moneyeye.data.models.dao.LocalTransactionDao
 import com.abaferas.moneyeye.data.models.dao.LocalUserDao
 import com.abaferas.moneyeye.data.source.local.datastore.DataStoreManagement
@@ -31,6 +32,7 @@ class DataSourceModule {
         userDao: LocalUserDao,
         categoriesDao: LocalCategoriesDao,
         categoryDao: LocalCategoryDao,
+        loginDao: LocalLoginDao,
         dataStoreManagement: DataStoreManagement
     ): LocalDataSource {
         return RoomDataSource(
@@ -39,6 +41,7 @@ class DataSourceModule {
             userDao,
             categoriesDao,
             categoryDao,
+            loginDao,
             dataStoreManagement
         )
     }

@@ -36,6 +36,9 @@ class DatabaseModule {
     fun userDao(database: RoomLocalDatabase) = database.userDao()
 
     @Provides
+    fun loginDao(database: RoomLocalDatabase) = database.loginDao()
+
+    @Provides
     fun appContext(@ApplicationContext context: Context) = context
 
 }

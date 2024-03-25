@@ -3,6 +3,7 @@ package com.abaferas.moneyeye.domain.source.repository
 import com.abaferas.moneyeye.domain.entity.Account
 import com.abaferas.moneyeye.domain.entity.Categories
 import com.abaferas.moneyeye.domain.entity.Category
+import com.abaferas.moneyeye.domain.entity.Login
 import com.abaferas.moneyeye.domain.entity.Transaction
 import com.abaferas.moneyeye.domain.entity.User
 import kotlinx.coroutines.flow.Flow
@@ -27,6 +28,10 @@ interface Repository {
     suspend fun insertUser(user: User)
     suspend fun updateUser(user: User)
     suspend fun deleteUser(user: User)
+    suspend fun insertLogin(login: Login)
+    suspend fun updateLogin(login: Login)
+    suspend fun deleteLogin(login: Login)
+    suspend fun getLoginByEmail(email: String): Login
     suspend fun setLoginState(state: Boolean)
     suspend fun getLoginState(): Boolean
 }

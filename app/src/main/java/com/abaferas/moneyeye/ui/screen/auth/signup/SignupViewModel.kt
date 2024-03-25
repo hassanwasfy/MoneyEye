@@ -17,5 +17,35 @@ class SignupViewModel @Inject constructor(
 
     }
 
+    override fun onFirstNameChange(value: String) {
+        TODO("Not yet implemented")
+    }
 
+    override fun onLastNameChange(value: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onEmailChange(value: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPasswordChange(value: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPasswordConfirmChange(value: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onSignupClick() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onLoginClick() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onAnonymousLoginClick() {
+        TODO("Not yet implemented")
+    }
 }

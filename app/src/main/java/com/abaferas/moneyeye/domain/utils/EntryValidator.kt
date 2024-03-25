@@ -1,4 +1,4 @@
-package com.abaferas.moneyeye.ui.util
+package com.abaferas.moneyeye.domain.utils
 
 class EntryValidator {
     fun validateName(value: String): Boolean {
@@ -6,14 +6,17 @@ class EntryValidator {
     }
 
     fun validateEmail(value: String): Boolean {
-        return true
+        val emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"
+        return Regex(emailRegex).matches(value) && value.isNotEmpty()
     }
 
     fun validatePassword(value: String): Boolean {
-        return true
+        val passwordRegex = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+        return Regex(passwordRegex).matches(value)
     }
 
+
     fun validatePasswordConfirm(pass: String, confirm: String): Boolean {
-        return pass === confirm
+        return pass == confirm
     }
 }

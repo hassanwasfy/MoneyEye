@@ -6,14 +6,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.abaferas.moneyeye.ui.theme.Purple40
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 
-val LocalNavController =
-    compositionLocalOf<NavHostController> { error("No NavController found!") }
+val LocalNavController = compositionLocalOf<NavHostController> { error("No NavController found!") }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -22,7 +21,9 @@ fun MoneyEyeApp() {
     val navController = rememberNavController()
     CompositionLocalProvider(LocalNavController provides navController) {
         Scaffold {
-            rememberSystemUiController().setStatusBarColor(Color.Red)
+            val sys = rememberSystemUiController()
+            sys.setStatusBarColor(Purple40, darkIcons = false)
+            sys.setNavigationBarColor(Purple40, darkIcons = false)
             MoneyEyeNavGraph()
         }
     }
