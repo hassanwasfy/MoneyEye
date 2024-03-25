@@ -5,6 +5,7 @@ object Constants {
     const val TABLE_ACCOUNT = "account"
     const val TABLE_RECORDS = "records"
     const val TABLE_CATEGORY = "category"
+    const val TABLE_LOGIN = "login"
     const val TABLE_CATEGORIES = "categories"
     const val TYPE_PAYMENT = "payment"
     const val TYPE_INCOME = "income"
@@ -48,5 +49,6 @@ object Constants {
     const val LABEL_EMAIL = "E-Mail"
     const val LABEL_PASSWORD = "Password"
     const val LABEL_PASSWORD_CONFIRM = "Password confirm"
+    const val LOG_TAG = "MoneyEyeTag"
 
 }
