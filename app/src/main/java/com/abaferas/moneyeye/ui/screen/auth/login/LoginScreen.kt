@@ -1,29 +1,30 @@
 package com.abaferas.moneyeye.ui.screen.auth.login
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
+import androidx.compose.material3.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.abaferas.moneyeye.domain.utils.Constants
+import com.abaferas.moneyeye.ui.composables.EyeText
+import com.abaferas.moneyeye.ui.composables.EyeTextField
 import com.abaferas.moneyeye.ui.navigation.NavigationHandler
 
 @Composable
@@ -50,6 +51,24 @@ fun ScreenLoginContent(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        EyeText(
+            modifier = Modifier,
+            text = "Welcome back",
+            textAlign = TextAlign.Center,
+            fontSize = 20,
+            fontWeight = FontWeight.Bold,
+            color = Color.Green,
+        )
+        EyeText(
+            modifier = Modifier,
+            text = "Login to your account",
+            textAlign = TextAlign.Center,
+            fontSize = 18,
+            fontWeight = FontWeight.Medium,
+            color = Color.Green,
+        )
+        Spacer(modifier = Modifier.fillMaxHeight(0.25f))
         EyeTextField(
             modifier = Modifier
                 .fillMaxWidth()
@@ -75,46 +94,12 @@ fun ScreenLoginContent(
             action = ImeAction.Done,
             visualTransformation = PasswordVisualTransformation()
         )
-    }
-}
 
-@Composable
-fun EyeTextField(
-    modifier: Modifier = Modifier,
-    value: String,
-    onValueChange: (String) -> Unit,
-    label: String,
-    isError: Boolean,
-    errMessage: String,
-    keyboardType: KeyboardType = KeyboardType.Text,
-    action: ImeAction = ImeAction.Default,
-    visualTransformation: VisualTransformation = VisualTransformation.None
-) {
-    OutlinedTextField(
-        modifier = modifier,
-        value = value,
-        onValueChange = onValueChange,
-        singleLine = true,
-        label = {
-            Text(text = label)
-        },
-        supportingText = {
-            AnimatedVisibility(
-                visible = isError,
-                enter = fadeIn(),
-                exit = fadeOut()
-            ) {
-                Text(text = errMessage)
-            }
-        },
-        maxLines = 1,
-        keyboardOptions = KeyboardOptions(
-            keyboardType = keyboardType,
-            imeAction = action
-        ),
-        isError = isError,
-        visualTransformation = visualTransformation
-    )
+        Button(onClick = interaction::onLoginClick) {
+
+        }
+    }
+
 }
 
 @Preview(
