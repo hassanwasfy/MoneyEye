@@ -12,7 +12,7 @@ import com.abaferas.moneyeye.ui.screen.splash.addSplashScreenRoute
 fun MoneyEyeNavGraph() {
     NavHost(
         navController = LocalNavController.current,
-        startDestination = Screens.Splash.route
+        startDestination = Screens.Home.route
     ) {
         addSplashScreenRoute()
         addSignupScreenRoute()
